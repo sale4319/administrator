@@ -28,7 +28,7 @@ public class WorkerController {
 
     @GetMapping("/oneworker")
     @ResponseBody
-    public Optional<Worker> getWorkerById(Integer Id, Model model) {
+    public Optional<Worker> getWorkerById(Long Id, Model model) {
         return workerService.getWorkerById(Id);
     }
 
@@ -45,7 +45,7 @@ public class WorkerController {
     }
 
     @RequestMapping(value="/worker/delete", method = {RequestMethod.DELETE, RequestMethod.PUT, RequestMethod.GET})
-    public String deleteWorker(Integer Id) {
+    public String deleteWorker(Long Id) {
         workerService.deleteWorker(Id);
         return "redirect:/index";
     }

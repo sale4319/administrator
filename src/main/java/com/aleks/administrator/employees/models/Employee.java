@@ -15,7 +15,7 @@ import javax.validation.constraints.NotEmpty;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+    private Long id;
     @NotEmpty
     private String name;
     @NotEmpty

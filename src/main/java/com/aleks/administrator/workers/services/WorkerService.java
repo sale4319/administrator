@@ -18,7 +18,7 @@ public class WorkerService {
         return (List<Worker>) workerRepository.findAll();
     }
 
-    public Optional<Worker> getWorkerById(Integer Id) {
+    public Optional<Worker> getWorkerById(Long Id) {
         return workerRepository.findById(Id);
     }
 
@@ -31,7 +31,7 @@ public class WorkerService {
         workerRepository.save(worker);
     }
 
-    public void deleteWorker(Integer Id) {
+    public void deleteWorker(Long Id) {
         workerRepository.deleteById(Id);
     }
 }
