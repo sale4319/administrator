@@ -17,7 +17,7 @@ public class Worker {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+    private Long id;
     @NotEmpty
     private String name;
     @NotEmpty

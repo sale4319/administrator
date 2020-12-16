@@ -27,7 +27,7 @@ public class EmployeeController {
 
     @GetMapping("/oneemployee")
     @ResponseBody
-    public Optional<Employee> getEmployeeById(Integer Id, Model model) {
+    public Optional<Employee> getEmployeeById(Long Id, Model model) {
         return employeeService.getEmployeeById(Id);
     }
 
@@ -52,7 +52,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value="/delete", method = {RequestMethod.DELETE, RequestMethod.PUT, RequestMethod.GET})
-    public String deleteEmployee(Integer Id) {
+    public String deleteEmployee(Long Id) {
         employeeService.deleteEmployee(Id);
         return "redirect:/index";
     }

@@ -30,7 +30,7 @@ public class ApplicationController {
 
     }
 
-    @RequestMapping(value="/both/addNew", method = {RequestMethod.POST, RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value="/both/addNew", method = {RequestMethod.POST})
     public String addEmployee(Employee employee, Worker worker, Model model) {
         workerService.addWorker(worker);
         employeeService.addEmployee(employee);
