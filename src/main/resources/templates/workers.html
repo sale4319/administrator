@@ -10,26 +10,30 @@
 
 
     <meta charset="UTF-8">
-    <title>Users</title>
+    <title>cockroachDB</title>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand">
         <img src="https://www.netex.ro/wp-content/uploads/logo_Netex-1.svg" width="70" height="50" class="d-inline-block align-top">
-        User Manager
     </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
-            </li>
+            <div class="dropdown">
+                <button type="button" class="btn btn-light dropdown-toggle selectDb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" name="editDb">
+                    Select Database
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" th:href="@{/index}">Home</a>
+                    <a class="dropdown-item" th:href="@{/employees}">postgreSQL</a>
+                </div>
+            </div>
         </ul>
     </div>
 </nav>
 
 <div class="container mySpace">
-    <button type="button" class="btn btn-success fas fa-user-plus addButton" data-toggle="modal" data-target="#addModal"></button>
     <table class="table table-striped">
         <tr>
             <td>Nr</td>
@@ -38,8 +42,6 @@
             <td>Department</td>
             <td>Position</td>
             <td>Employment Date</td>
-            <td>Edit</td>
-            <td>Delete</td>
         </tr>
         <tr th:each="worker:${workers}">
             <td th:text="${worker.Id}">Id</td>
@@ -48,121 +50,8 @@
             <td th:text="${worker.department}">Department</td>
             <td th:text="${worker.position}">Position</td>
             <td th:text="${worker.updateOn}">Employment Date</td>
-            <td><button th:href= "@{/oneworker/(Id=${worker.Id})}" class="btn btn-info editButton fas fa-pencil-alt"></button></td>
-            <td><button th:href= "@{/worker/delete/(Id=${worker.Id})}" class="btn btn-danger deleteButton fas fa-trash"></button></td>
         </tr>
     </table>
-</div>
-
-<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form th:action="@{/worker/addNew}" method="post"> <!-- added th:object="${user}"-->
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addModalLabel">Add new user</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="form-group">
-                        <label for="addName" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="addName" name="name"> <!-- added th:field="*{name}"-->
-                        <!-- <div class="text text-danger" th:if="${#fields.hasErrors('name')" th:errors="*{name}"></div> -->
-                    </div>
-                    <div class="form-group">
-                        <label for="addPosition" class="col-form-label">Position:</label>
-                        <input type="text" class="form-control"  id="addPosition" name="position"> <!-- added th:field="*{position}"-->
-                    </div>
-                    <div class="form-group">
-                        <label for="addDepartment" class="col-form-label">Department:</label>
-                        <input type="text" class="form-control"  id="addDepartment" name="department"> <!-- added th:field="*{department}"-->
-                    </div>
-                    <div class="form-group">
-                        <label for="addDate" class="col-form-label">Employment Date:</label>
-                        <input type="text" class="form-control" placeholder="yyyy-mm-dd"  id="addDate" name="updateOn"> <!-- added th:field="*{updateOn}"-->
-
-                    </div>
-                    <div class="dropdown">
-                        <button type="button" class="btn btn-secondary dropdown-toggle selectDb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" name="editDb">
-                            Select Database
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="">cockroachDB</a>
-                            <a class="dropdown-item" href="">postgreSQLDB</a>
-                            <a class="dropdown-item" href="">Both</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form th:action="@{/save}" method="put">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit user</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input type="hidden" class="form-control" id="editId" name="Id">
-                    </div>
-                    <div class="form-group">
-                        <label for="editName" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="editName" name="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="editPosition" class="col-form-label">Position:</label>
-                        <input type="text" class="form-control" id="editPosition" name="position">
-                    </div>
-                    <div class="form-group">
-                        <label for="editDepartment" class="col-form-label">Department:</label>
-                        <input type="text" class="form-control" id="editDepartment" name="department">
-                    </div>
-                    <div class="form-group">
-                        <label for="editDate" class="col-form-label">Employment Date:</label>
-                        <input type="text" class="form-control" id="editDate" name="updateOn">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-
-<div class="modal" tabindex="-1" id="deleteModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Confirm delete</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you want to delete selected record?</p>
-            </div>
-            <div class="modal-footer">
-                <a href="" type="submit" class="btn btn-danger" id="deleteId">Delete</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-
-            </div>
-        </div>
-    </div>
 </div>
 
 <script type="text/javascript" src="webjars/jquery/3.4.1/jquery.min.js"></script>
