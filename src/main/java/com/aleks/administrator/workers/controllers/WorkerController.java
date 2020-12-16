@@ -35,26 +35,18 @@ public class WorkerController {
     @RequestMapping(value="/worker/save", method = {RequestMethod.POST, RequestMethod.PUT, RequestMethod.GET})
     public String updateWorker(Worker worker) {
         workerService.updateWorker(worker);
-        return "redirect:/workers";
+        return "redirect:/index";
     }
 
     @RequestMapping(value="/worker/addNew", method = {RequestMethod.POST, RequestMethod.PUT, RequestMethod.GET})
     public String addWorker(Worker worker, Model model) {
-		/*if(bindingResult.hasErrors()) {
-			return "redirect:/employees";
-		}
-        if(userService.checkUser(user.getId())){
-            model.addAttribute("exist", true);
-            return "redirect:/home";
-        }*/
-
         workerService.addWorker(worker);
-        return "redirect:/workers";
+        return "redirect:/index";
     }
 
     @RequestMapping(value="/worker/delete", method = {RequestMethod.DELETE, RequestMethod.PUT, RequestMethod.GET})
     public String deleteWorker(Integer Id) {
         workerService.deleteWorker(Id);
-        return "redirect:/workers";
+        return "redirect:/index";
     }
 }

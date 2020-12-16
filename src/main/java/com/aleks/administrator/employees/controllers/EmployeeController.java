@@ -34,7 +34,7 @@ public class EmployeeController {
     @RequestMapping(value="/save", method = {RequestMethod.POST, RequestMethod.PUT, RequestMethod.GET})
     public String updateEmployee(Employee employee) {
         employeeService.updateEmployee(employee);
-        return "redirect:/employees";
+        return "redirect:/index";
     }
 
     @RequestMapping(value="/addNew", method = {RequestMethod.POST, RequestMethod.PUT, RequestMethod.GET})
@@ -48,12 +48,12 @@ public class EmployeeController {
         }*/
 
         employeeService.addEmployee(employee);
-        return "redirect:/employees";
+        return "redirect:/index";
     }
 
     @RequestMapping(value="/delete", method = {RequestMethod.DELETE, RequestMethod.PUT, RequestMethod.GET})
     public String deleteEmployee(Integer Id) {
         employeeService.deleteEmployee(Id);
-        return "redirect:/employees";
+        return "redirect:/index";
     }
 }
