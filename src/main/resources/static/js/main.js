@@ -41,5 +41,4 @@ $(document).ready(function() {
        $('#deleteModal1 #deleteId1').attr('href', href)
        $('#deleteModal1').modal();
    });
-
 });
