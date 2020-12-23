@@ -31,13 +31,6 @@ public class EmployeeController {
 
     @PostMapping(value="/addNew")
     public String addEmployee(Employee employee, Model model) {
-		/*if(bindingResult.hasErrors()) {
-			return "redirect:/employees";
-		}
-        if(userService.checkUser(user.getId())){
-            model.addAttribute("exist", true);
-            return "redirect:/home";
-        }*/
 
         employeeService.addEmployee(employee);
         return "redirect:/index";
