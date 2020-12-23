@@ -7,10 +7,7 @@ import com.aleks.administrator.workers.services.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -30,7 +27,7 @@ public class ApplicationController {
 
     }
 
-    @RequestMapping(value="/both/addNew", method = {RequestMethod.POST})
+    @PostMapping(value="/both/addNew")
     public String addEmployee(Employee employee, Worker worker, Model model) {
         workerService.addWorker(worker);
         employeeService.addEmployee(employee);

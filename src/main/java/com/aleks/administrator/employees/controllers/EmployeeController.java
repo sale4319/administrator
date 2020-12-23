@@ -5,10 +5,7 @@ import com.aleks.administrator.employees.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -31,13 +28,8 @@ public class EmployeeController {
         return employeeService.getEmployeeById(Id);
     }
 
-    @RequestMapping(value="/save", method = {RequestMethod.POST, RequestMethod.PUT, RequestMethod.GET})
-    public String updateEmployee(Employee employee) {
-        employeeService.updateEmployee(employee);
-        return "redirect:/index";
-    }
 
-    @RequestMapping(value="/addNew", method = {RequestMethod.POST, RequestMethod.PUT, RequestMethod.GET})
+    @PostMapping(value="/addNew")
     public String addEmployee(Employee employee, Model model) {
 		/*if(bindingResult.hasErrors()) {
 			return "redirect:/employees";
@@ -51,7 +43,13 @@ public class EmployeeController {
         return "redirect:/index";
     }
 
-    @RequestMapping(value="/delete", method = {RequestMethod.DELETE, RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value="/save", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String updateEmployee(Employee employee) {
+        employeeService.updateEmployee(employee);
+        return "redirect:/index";
+    }
+
+    @RequestMapping(value="/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String deleteEmployee(Long Id) {
         employeeService.deleteEmployee(Id);
         return "redirect:/index";

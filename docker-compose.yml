@@ -1,0 +1,34 @@
+version: '3.5'
+services:
+  app:
+    container_name: docker-admin
+    image: docker-admin
+    build: ./
+    ports:
+      - "9000:9000"
+    depends_on:
+      - postgresqldb
+      - roach1
+
+  postgresqldb:
+    container_name: postgresqldb
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+
+  roach1:
+    container_name: roach1
+    image: cockroachdb/cockroach:latest
+    ports:
+      - "26257:26257"
+      - "8080:8080"
+    command: start-single-node --insecure
+    volumes:
+      - "${PWD}/cockroach-data/roach1:/cockroach/cockroach-data"
+
+
+
