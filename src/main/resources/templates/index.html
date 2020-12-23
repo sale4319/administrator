@@ -79,20 +79,20 @@
 
                     <div class="form-group">
                         <label for="addName" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="addName" name="name"> <!-- added th:field="*{name}"-->
-                        <!-- <div class="text text-danger" th:if="${#fields.hasErrors('name')" th:errors="*{name}"></div> -->
+                        <input type="text" class="form-control" id="addName" name="name" required pattern="[A-Za-z]{+}">
+
                     </div>
                     <div class="form-group">
                         <label for="addPosition" class="col-form-label">Position:</label>
-                        <input type="text" class="form-control"  id="addPosition" name="position"> <!-- added th:field="*{position}"-->
+                        <input type="text" class="form-control"  id="addPosition" name="position" required pattern="[A-Za-z]{3,50}"> <!-- added th:field="*{position}"-->
                     </div>
                     <div class="form-group">
                         <label for="addDepartment" class="col-form-label">Department:</label>
-                        <input type="text" class="form-control"  id="addDepartment" name="department"> <!-- added th:field="*{department}"-->
+                        <input type="text" class="form-control"  id="addDepartment" name="department" required pattern="[A-Za-z]{3,50}"> <!-- added th:field="*{department}"-->
                     </div>
                     <div class="form-group">
                         <label for="addDate" class="col-form-label">Employment Date:</label>
-                        <input type="text" class="form-control" placeholder="yyyy-mm-dd"  id="addDate" name="updateOn"> <!-- added th:field="*{updateOn}"-->
+                        <input type="date" class="form-control" placeholder="yyyy-mm-dd"  id="addDate" name="updateOn" required> <!-- added th:field="*{updateOn}"-->
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -129,19 +129,19 @@
                 </div>
                 <div class="form-group">
                     <label for="editName" class="col-form-label">Name:</label>
-                    <input type="text" class="form-control" id="editName" name="name">
+                    <input type="text" class="form-control" id="editName" name="name" required pattern="[A-Za-z]{+}">
                 </div>
                 <div class="form-group">
                     <label for="editPosition" class="col-form-label">Position:</label>
-                    <input type="text" class="form-control" id="editPosition" name="position">
+                    <input type="text" class="form-control" id="editPosition" name="position" required pattern="[A-Za-z]{3,50}">
                 </div>
                 <div class="form-group">
                     <label for="editDepartment" class="col-form-label">Department:</label>
-                    <input type="text" class="form-control" id="editDepartment" name="department">
+                    <input type="text" class="form-control" id="editDepartment" name="department" required pattern="[A-Za-z]{3,50}">
                 </div>
                 <div class="form-group">
                     <label for="editDate" class="col-form-label">Employment Date:</label>
-                    <input type="text" class="form-control" id="editDate" name="updateOn">
+                    <input type="date" class="form-control" id="editDate" name="updateOn" required>
                 </div>
             </div>
             <div class="modal-footer">
@@ -168,19 +168,19 @@
                     </div>
                     <div class="form-group">
                         <label for="editName" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="editName1" name="name">
+                        <input type="text" class="form-control" id="editName1" name="name" required pattern="[A-Za-z]{+}">
                     </div>
                     <div class="form-group">
                         <label for="editPosition" class="col-form-label">Position:</label>
-                        <input type="text" class="form-control" id="editPosition1" name="position">
+                        <input type="text" class="form-control" id="editPosition1" name="position" required pattern="[A-Za-z]{3,50}">
                     </div>
                     <div class="form-group">
                         <label for="editDepartment" class="col-form-label">Department:</label>
-                        <input type="text" class="form-control" id="editDepartment1" name="department">
+                        <input type="text" class="form-control" id="editDepartment1" name="department" required pattern="[A-Za-z]{3,50}">
                     </div>
                     <div class="form-group">
                         <label for="editDate" class="col-form-label">Employment Date:</label>
-                        <input type="text" class="form-control" id="editDate1" name="updateOn">
+                        <input type="date" class="form-control" id="editDate1" name="updateOn" required>
                     </div>
                 </div>
                 <div class="modal-footer">

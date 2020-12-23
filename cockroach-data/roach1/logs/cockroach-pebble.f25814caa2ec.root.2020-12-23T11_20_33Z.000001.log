@@ -1,0 +1,26 @@
+I201223 11:20:33.807136 29 util/log/sync_buffer.go:195 ⋮ [config] file created at: 2020/12/23 11:20:33
+I201223 11:20:33.807142 29 util/log/sync_buffer.go:195 ⋮ [config] running on machine: ‹f25814caa2ec›
+I201223 11:20:33.807146 29 util/log/sync_buffer.go:195 ⋮ [config] binary: CockroachDB CCL v20.2.3 (x86_64-unknown-linux-gnu, built 2020/12/14 18:33:39, go1.13.14)
+I201223 11:20:33.807149 29 util/log/sync_buffer.go:195 ⋮ [config] arguments: ‹[/cockroach/cockroach start-single-node --insecure]›
+I201223 11:20:33.807154 29 util/log/sync_buffer.go:195 ⋮ [config] line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I201223 11:20:33.807078 29 vendor/github.com/cockroachdb/pebble/version_set.go:142 ⋮ [n?] [JOB 1] MANIFEST created 000001
+I201223 11:20:33.807935 29 vendor/github.com/cockroachdb/pebble/open.go:295 ⋮ [n?] [JOB 1] WAL created 000002
+I201223 11:20:33.809629 68 vendor/github.com/cockroachdb/pebble/table_stats.go:118 ⋮ [n?] [JOB 2] all initial table stats loaded
+I201223 11:20:33.813834 29 vendor/github.com/cockroachdb/pebble/compaction.go:1559 ⋮ [n?] [JOB 1] flushing: sstable created 000109
+I201223 11:20:33.819140 29 vendor/github.com/cockroachdb/pebble/compaction.go:1559 ⋮ [n?] [JOB 1] flushing: sstable created 000110
+I201223 11:20:33.838204 29 vendor/github.com/cockroachdb/pebble/compaction.go:1559 ⋮ [n?] [JOB 1] flushing: sstable created 000111
+I201223 11:20:33.848531 29 vendor/github.com/cockroachdb/pebble/open.go:295 ⋮ [n?] [JOB 1] WAL created 000112
+I201223 11:20:33.850667 29 vendor/github.com/cockroachdb/pebble/version_set.go:442 ⋮ [n?] [JOB 1] MANIFEST created 000113
+I201223 11:20:33.852064 29 vendor/github.com/cockroachdb/pebble/compaction.go:2298 ⋮ [n?] [JOB 1] WAL deleted 000103
+I201223 11:20:33.852284 29 vendor/github.com/cockroachdb/pebble/compaction.go:2298 ⋮ [n?] [JOB 1] WAL deleted 000107
+I201223 11:20:33.852630 29 vendor/github.com/cockroachdb/pebble/compaction.go:2298 ⋮ [n?] [JOB 1] WAL deleted 000108
+I201223 11:20:33.852689 29 vendor/github.com/cockroachdb/pebble/compaction.go:2305 ⋮ [n?] [JOB 1] MANIFEST deleted 000104
+I201223 11:20:33.852861 137 vendor/github.com/cockroachdb/pebble/compaction.go:1369 ⋮ [n?] [JOB 3] compacting L0 [000109 000110 000111] (194 K) + L6 [000106] (824 K)
+I201223 11:20:33.853030 136 vendor/github.com/cockroachdb/pebble/table_stats.go:118 ⋮ [n?] [JOB 2] all initial table stats loaded
+I201223 11:20:33.853390 137 vendor/github.com/cockroachdb/pebble/compaction.go:1559 ⋮ [n?] [JOB 3] compacting: sstable created 000115
+I201223 11:20:33.879958 178 vendor/github.com/cockroachdb/pebble/db.go:1366 ⋮ [n1] [JOB 4] WAL created 000116
+I201223 11:20:33.901576 137 vendor/github.com/cockroachdb/pebble/compaction.go:1408 ⋮ [n1] [JOB 3] compacted L0 [000109 000110 000111] (194 K) + L6 [000106] (824 K) -> L6 [000115] (842 K), in 0.0s, output rate 17 M/s
+I201223 11:20:33.901911 137 vendor/github.com/cockroachdb/pebble/compaction.go:2312 ⋮ [n1] [JOB 3] sstable deleted 000106
+I201223 11:20:33.901972 137 vendor/github.com/cockroachdb/pebble/compaction.go:2312 ⋮ [n1] [JOB 3] sstable deleted 000109
+I201223 11:20:33.902028 137 vendor/github.com/cockroachdb/pebble/compaction.go:2312 ⋮ [n1] [JOB 3] sstable deleted 000110
+I201223 11:20:33.902072 137 vendor/github.com/cockroachdb/pebble/compaction.go:2312 ⋮ [n1] [JOB 3] sstable deleted 000111

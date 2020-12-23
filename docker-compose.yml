@@ -19,6 +19,8 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_DB=postgres
+    volumes:
+    - postgres-data:/var/lib/postgresql/data/
 
   roach1:
     container_name: roach1
@@ -30,5 +32,5 @@ services:
     volumes:
       - "${PWD}/cockroach-data/roach1:/cockroach/cockroach-data"
 
-
-
+volumes:
+  postgres-data:
