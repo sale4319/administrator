@@ -9,8 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @Controller
 public class ApplicationController {
 
@@ -19,7 +17,7 @@ public class ApplicationController {
     @Autowired
     private WorkerService workerService;
 
-    @GetMapping("/index")
+    @RequestMapping(value={"/","/index","/home"})
     public String getEmployees(Model model){
         model.addAttribute("showPostgres", employeeService.getEmployees());
         model.addAttribute("showCockroach", workerService.getWorkers());

@@ -24,5 +24,7 @@ public class Employee {
     private String department;
     @NotEmpty
     private String updateOn;
+    @NotEmpty
+    private String email;
     private String db = "postgreSQL";
 }
