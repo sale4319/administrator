@@ -16,7 +16,7 @@ import javax.validation.constraints.NotEmpty;
 public class Worker {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotEmpty
     private String name;
@@ -26,6 +26,9 @@ public class Worker {
     private String department;
     @NotEmpty
     private String updateOn;
+    @NotEmpty
+    private String email;
+
     private String db = "cockroachDB";
 
 

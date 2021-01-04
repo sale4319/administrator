@@ -1,6 +1,10 @@
 .mySpace {
     padding-top: 10px;
 }
+.errors {
+    color: red;
+    font-size: 15px;
+}
 
 footer {
     margin: 0;

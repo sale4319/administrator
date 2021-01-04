@@ -5,8 +5,10 @@ import com.aleks.administrator.employees.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -30,8 +32,10 @@ public class EmployeeController {
 
 
     @PostMapping(value="/addNew")
-    public String addEmployee(Employee employee, Model model) {
-
+    public String addEmployee(@Valid Employee employee, Model model, BindingResult result) {
+        if(result.hasErrors()) {
+            return "redirect:/index";
+        }
         employeeService.addEmployee(employee);
         return "redirect:/index";
     }
