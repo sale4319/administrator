@@ -1,0 +1,6 @@
+I210105 10:39:31.509407 1 util/log/sync_buffer.go:195  [config] file created at: 2021/01/05 10:39:31
+I210105 10:39:31.509415 1 util/log/sync_buffer.go:195  [config] running on machine: 1750c09dc320
+I210105 10:39:31.509420 1 util/log/sync_buffer.go:195  [config] binary: CockroachDB CCL v20.2.3 (x86_64-unknown-linux-gnu, built 2020/12/14 18:33:39, go1.13.14)
+I210105 10:39:31.509422 1 util/log/sync_buffer.go:195  [config] arguments: [/cockroach/cockroach start-single-node --insecure]
+I210105 10:39:31.509427 1 util/log/sync_buffer.go:195  [config] line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I210105 10:39:31.509349 1 util/log/flags.go:106  stderr capture started

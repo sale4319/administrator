@@ -1,0 +1,119 @@
+I210105 11:30:57.992651 1 util/log/sync_buffer.go:195 ⋮ [config] file created at: 2021/01/05 11:30:57
+I210105 11:30:57.992656 1 util/log/sync_buffer.go:195 ⋮ [config] running on machine: ‹1750c09dc320›
+I210105 11:30:57.992660 1 util/log/sync_buffer.go:195 ⋮ [config] binary: CockroachDB CCL v20.2.3 (x86_64-unknown-linux-gnu, built 2020/12/14 18:33:39, go1.13.14)
+I210105 11:30:57.992663 1 util/log/sync_buffer.go:195 ⋮ [config] arguments: ‹[/cockroach/cockroach start-single-node --insecure]›
+I210105 11:30:57.992668 1 util/log/sync_buffer.go:195 ⋮ [config] line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+W210105 11:30:57.992600 1 cli/start.go:1139 ⋮ ALL SECURITY CONTROLS HAVE BEEN DISABLED!
+
+This mode is intended for non-production testing only.
+
+In this mode:
+- Your cluster is open to any client that can access ‹any of your IP addresses›.
+- Intruders with access to your machine or network can observe client-server traffic.
+- Intruders can log in without password and read or write any data in the cluster.
+- Intruders can consume all your server's resources and cause unavailability.
+I210105 11:30:57.992720 1 cli/start.go:1149 ⋮ To start a secure server without mandating TLS for clients,
+consider --accept-sql-without-tls instead. For other options, see:
+
+- ‹https://go.crdb.dev/issue-v/53404/v20.2›
+- https://www.cockroachlabs.com/docs/v20.2/secure-a-cluster.html
+I210105 11:30:57.992918 1 server/status/recorder.go:605 ⋮ ‹available memory from cgroups (8.0 EiB) is unsupported, using system memory 31 GiB instead:›
+W210105 11:30:57.992930 1 cli/start.go:983 ⋮ ‹Using the default setting for --cache (128 MiB).›
+‹  A significantly larger value is usually needed for good performance.›
+‹  If you have a dedicated server a reasonable setting is --cache=.25 (7.8 GiB).›
+I210105 11:30:57.993065 1 server/status/recorder.go:605 ⋮ ‹available memory from cgroups (8.0 EiB) is unsupported, using system memory 31 GiB instead:›
+I210105 11:30:57.993074 1 cli/start.go:1164 ⋮ ‹CockroachDB CCL v20.2.3 (x86_64-unknown-linux-gnu, built 2020/12/14 18:33:39, go1.13.14)›
+I210105 11:30:57.993688 1 server/status/recorder.go:605 ⋮ ‹available memory from cgroups (8.0 EiB) is unsupported, using system memory 31 GiB instead:›
+I210105 11:30:57.993701 1 server/config.go:434 ⋮ system total memory: ‹31 GiB›
+I210105 11:30:57.993713 1 server/config.go:436 ⋮ server configuration:
+‹max offset             500000000›
+‹cache size             128 MiB›
+‹SQL memory pool size   7.8 GiB›
+‹scan interval          10m0s›
+‹scan min idle time     10ms›
+‹scan max idle time     1s›
+‹event log enabled      true›
+I210105 11:30:57.993747 1 cli/start.go:961 ⋮ using local environment variables: ‹COCKROACH_CHANNEL=official-docker›
+I210105 11:30:57.993757 1 cli/start.go:968 ⋮ process identity: ‹uid 0 euid 0 gid 0 egid 0›
+I210105 11:30:57.993897 1 cli/start.go:502 ⋮ could not initialize GEOS - spatial functions may not be available: geos: error during GEOS init: geos: cannot load GEOS from dir ‹"/usr/local/lib/cockroach"›: ‹geos error: /usr/local/lib/cockroach/libgeos.so: cannot open shared object file: No such file or directory›
+I210105 11:30:57.993934 1 cli/start.go:509 ⋮ starting cockroach node
+I210105 11:30:58.009351 57 server/server.go:782 ⋮ [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I210105 11:30:58.028036 57 server/config.go:625 ⋮ [n?] 1 storage engine‹› initialized
+I210105 11:30:58.028051 57 server/config.go:628 ⋮ [n?] ‹Pebble cache size: 128 MiB›
+I210105 11:30:58.028058 57 server/config.go:628 ⋮ [n?] ‹store 0: RocksDB, max size 0 B, max open file limit 1043576›
+W210105 11:30:58.029986 57 cli/start.go:907 ⋮ neither --listen-addr nor --advertise-addr was specified.
+The server will advertise ‹"1750c09dc320"› to other nodes, is this routable?
+
+Consider using:
+- for local-only servers:  --listen-addr=localhost
+- for multi-node clusters: --advertise-addr=<host/IP addr>
+I210105 11:30:58.030009 155 server/server.go:1416 ⋮ [n?] connecting to gossip network to verify cluster ID ‹"96dd4b31-a868-4727-9dc0-96ec7dfd7219"›
+I210105 11:30:58.032282 57 gossip/gossip.go:403 ⋮ [n1] NodeDescriptor set to ‹node_id:1 address:<network_field:"tcp" address_field:"1750c09dc320:26257" > attrs:<> locality:<> ServerVersion:<major_val:20 minor_val:2 patch:0 unstable:0 > build_tag:"v20.2.3" started_at:1609846258032276010 cluster_name:"" sql_address:<network_field:"tcp" address_field:"1750c09dc320:26257" >›
+W210105 11:30:58.035943 57 kv/kvserver/replica_range_lease.go:555 ⋮ [n1,s1,r26/1:‹/NamespaceTable/{30-Max}›] can't determine lease status of (n1,s1):1 due to node liveness error: node not in the liveness table
+(1) attached stack trace
+  -- stack trace:
+  | github.com/cockroachdb/cockroach/pkg/kv/kvserver.init
+  | 	/go/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/node_liveness.go:45
+  | runtime.doInit
+  | 	/usr/local/go/src/runtime/proc.go:5228
+  | runtime.doInit
+  | 	/usr/local/go/src/runtime/proc.go:5223
+  | runtime.doInit
+  | 	/usr/local/go/src/runtime/proc.go:5223
+  | runtime.doInit
+  | 	/usr/local/go/src/runtime/proc.go:5223
+  | runtime.doInit
+  | 	/usr/local/go/src/runtime/proc.go:5223
+  | runtime.main
+  | 	/usr/local/go/src/runtime/proc.go:190
+  | runtime.goexit
+  | 	/usr/local/go/src/runtime/asm_amd64.s:1357
+Wraps: (2) node not in the liveness table
+Error types: (1) *withstack.withStack (2) *errutil.leafError
+I210105 11:30:58.036053 57 server/node.go:430 ⋮ [n1] initialized store [n1,s1]: disk (capacity=194 GiB, available=162 GiB, used=2.2 MiB, logicalBytes=4.8 MiB), ranges=39, leases=0, queries=0.00, writes=0.00, bytesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=1762.00 p90=19665.00 pMax=4895300.00}, writesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}
+I210105 11:30:58.036149 57 kv/kvserver/stores.go:236 ⋮ [n1] read 0 node addresses from persistent storage
+W210105 11:30:58.036271 210 kv/kvserver/store.go:1704 ⋮ [n1,s1,r6/1:‹/Table/{SystemCon…-11}›] could not gossip system config: ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+(1) ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+Error types: (1) *roachpb.NotLeaseHolderError
+I210105 11:30:58.036761 155 server/server.go:1419 ⋮ [n1] node connected via gossip
+I210105 11:30:58.039797 57 server/node.go:489 ⋮ [n1] started with engine type ‹2›
+I210105 11:30:58.039856 57 server/node.go:491 ⋮ [n1] started with attributes ‹[]›
+I210105 11:30:58.039917 57 server/goroutinedumper/goroutinedumper.go:120 ⋮ [n1] writing goroutine dumps to ‹/cockroach/cockroach-data/logs/goroutine_dump›
+I210105 11:30:58.039960 57 server/heapprofiler/heapprofiler.go:49 ⋮ [n1] writing go heap profiles to ‹/cockroach/cockroach-data/logs/heap_profiler› at least every 1h0m0s
+I210105 11:30:58.039978 57 server/heapprofiler/cgoprofiler.go:53 ⋮ [n1] to enable jmalloc profiling: "export MALLOC_CONF=prof:true" or "ln -s prof:true /etc/malloc.conf"
+I210105 11:30:58.039987 57 server/heapprofiler/statsprofiler.go:54 ⋮ [n1] writing memory stats to ‹/cockroach/cockroach-data/logs/heap_profiler› at last every 1h0m0s
+I210105 11:30:58.040005 57 server/server.go:1536 ⋮ [n1] starting http server at ‹[::]:8080› (use: ‹1750c09dc320:8080›)
+I210105 11:30:58.040110 57 server/server.go:1543 ⋮ [n1] starting grpc/postgres server at ‹[::]:26257›
+I210105 11:30:58.040125 57 server/server.go:1544 ⋮ [n1] advertising CockroachDB node at ‹1750c09dc320:26257›
+I210105 11:30:58.060337 57 sql/sqlliveness/slinstance/slinstance.go:252 ⋮ [n1] starting SQL liveness instance
+I210105 11:30:58.061205 57 server/server_sql.go:753 ⋮ [n1] done ensuring all necessary migrations have run
+I210105 11:30:58.061248 57 server/server.go:1876 ⋮ [n1] serving sql connections
+I210105 11:30:58.061411 57 cli/start.go:670 ⋮ [config] clusterID: ‹96dd4b31-a868-4727-9dc0-96ec7dfd7219›
+I210105 11:30:58.061454 57 cli/start.go:680 ⋮ node startup completed:
+CockroachDB node starting at 2021-01-05 11:30:58.061323433 +0000 UTC (took 0.1s)
+build:               CCL v20.2.3 @ 2020/12/14 18:33:39 (go1.13.14)
+webui:               ‹http://1750c09dc320:8080›
+sql:                 ‹postgresql://root@1750c09dc320:26257?sslmode=disable›
+RPC client flags:    ‹/cockroach/cockroach <client cmd> --host=1750c09dc320:26257 --insecure›
+logs:                ‹/cockroach/cockroach-data/logs›
+temp dir:            ‹/cockroach/cockroach-data/cockroach-temp314521492›
+external I/O path:   ‹/cockroach/cockroach-data/extern›
+store[0]:            ‹path=/cockroach/cockroach-data›
+storage engine:      pebble
+status:              restarted pre-existing node
+clusterID:           ‹96dd4b31-a868-4727-9dc0-96ec7dfd7219›
+nodeID:              1
+I210105 11:30:58.061775 287 jobs/job_scheduler.go:346 ⋮ [n1] waiting 4m0s before scheduled jobs daemon start
+I210105 11:30:58.067923 257 sql/temporary_schema.go:497 ⋮ [n1] running temporary object cleanup background job
+I210105 11:30:58.070318 257 sql/temporary_schema.go:532 ⋮ [n1] found 0 temporary schemas
+I210105 11:30:58.070344 257 sql/temporary_schema.go:535 ⋮ [n1] early exiting temporary schema cleaner as no temporary schemas were found
+I210105 11:30:58.070352 257 sql/temporary_schema.go:536 ⋮ [n1] completed temporary object cleanup job
+I210105 11:30:58.070360 257 sql/temporary_schema.go:614 ⋮ [n1] temporary object cleaner next scheduled to run at 2021-01-05 12:00:58.06060447 +0000 UTC
+I210105 11:30:58.072479 288 server/server_update.go:55 ⋮ [n1] no need to upgrade, cluster already at the newest version
+I210105 11:30:58.078442 255 sql/sqlliveness/slstorage/slstorage.go:342 ⋮ [n1] inserted sqlliveness session ‹aec9d227f5a445488711a3d0b3916528›
+I210105 11:30:58.078471 255 sql/sqlliveness/slinstance/slinstance.go:143 ⋮ [n1] created new SQL liveness session ‹aec9d227f5a445488711a3d0b3916528›
+I210105 11:30:58.082461 300 sql/catalog/lease/lease.go:2115 ⋮ released orphaned lease: ‹{id:56 version:1 expiration:{Time:{wall:257969000 ext:63745440285 loc:<nil>}}}›
+I210105 11:30:58.082489 299 sql/catalog/lease/lease.go:2115 ⋮ released orphaned lease: ‹{id:53 version:1 expiration:{Time:{wall:412927000 ext:63745440277 loc:<nil>}}}›
+I210105 11:30:58.085160 253 sql/event_log.go:162 ⋮ [n1] Event: ‹"node_restart"›, target: 1, info: ‹{Descriptor:{NodeID:1 Address:1750c09dc320:26257 Attrs: Locality: ServerVersion:20.2 BuildTag:v20.2.3 StartedAt:1609846258032276010 LocalityAddress:[] ClusterName: SQLAddress:1750c09dc320:26257} ClusterID:96dd4b31-a868-4727-9dc0-96ec7dfd7219 StartedAt:1609846258032276010 LastUp:1609843231629968733}›
+I210105 11:31:00.170535 158 gossip/gossip.go:1508 ⋮ [n1] node has connected to cluster via gossip
+I210105 11:31:00.171364 158 kv/kvserver/stores.go:255 ⋮ [n1] wrote 0 node addresses to persistent storage
