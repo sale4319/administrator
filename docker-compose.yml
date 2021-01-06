@@ -24,7 +24,7 @@ services:
 
   roach1:
     container_name: roach1
-    image: crdb:1 #cockroachdb/cockroach:v20.2.3 #crdb_centos:test
+    image: cockroachdb/cockroach:v20.2.3 #crdb:1  #crdb_centos:test
     ports:
       - "26257:26257"
       - "8080:8080"

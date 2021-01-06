@@ -1,9 +1,9 @@
-package com.aleks.administrator.postgreDB.controllers;
+package com.aleks.administrator.postgredb.controllers;
 
-import com.aleks.administrator.cockroachDB.models.Cockroach;
-import com.aleks.administrator.postgreDB.models.Employee;
-import com.aleks.administrator.postgreDB.services.EmployeeService;
-import com.aleks.administrator.cockroachDB.services.WorkerService;
+import com.aleks.administrator.cockroachdb.models.Cockroach;
+import com.aleks.administrator.cockroachdb.services.CockroachService;
+import com.aleks.administrator.postgredb.models.Postgre;
+import com.aleks.administrator.postgredb.services.PostgreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,22 +13,22 @@ import org.springframework.web.bind.annotation.*;
 public class ApplicationController {
 
     @Autowired
-    private EmployeeService employeeService;
+    private PostgreService postgreService;
     @Autowired
-    private WorkerService workerService;
+    private CockroachService cockroachService;
 
     @RequestMapping(value={"/","/index","/home"})
-    public String getEmployees(Model model){
-        model.addAttribute("showPostgres", employeeService.getEmployees());
-        model.addAttribute("showCockroach", workerService.getWorkers());
+    public String getBoth(Model model){
+        model.addAttribute("showPostgres", postgreService.getPostgres());
+        model.addAttribute("showCockroach", cockroachService.getCockroaches());
         return "index";
 
     }
 
     @PostMapping(value="/both/addNew")
-    public String addEmployee(Employee employee, Cockroach cockroach, Model model) {
-        workerService.addWorker(cockroach);
-        employeeService.addEmployee(employee);
+    public String addBoth(Postgre postgre, Cockroach cockroach, Model model) {
+        cockroachService.addCockroach(cockroach);
+        postgreService.addPostgre(postgre);
         return "redirect:/index";
     }
 

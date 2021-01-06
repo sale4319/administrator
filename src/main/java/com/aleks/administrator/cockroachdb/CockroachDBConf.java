@@ -1,4 +1,4 @@
-package com.aleks.administrator.cockroachDB;
+package com.aleks.administrator.cockroachdb;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -40,15 +40,15 @@ public class CockroachDBConf {
     {
         return builder
                 .dataSource(dataSource)
-                .packages("com.aleks.administrator.cockroach")
-                .persistenceUnit("Worker")
+                .packages("com.aleks.administrator.cockroachdb")
+                .persistenceUnit("Cockroach")
                 .build();
     }
 
     //PlatformTransactionManager
-    @Bean(name="workersTransactionManager")
+    @Bean(name="cockroachdbTransactionManager")
     public PlatformTransactionManager transactionManager(
-            @Qualifier("cockroachEntityManagerFactory")EntityManagerFactory entityManagerFactory
+            @Qualifier("cockroachdbEntityManagerFactory")EntityManagerFactory entityManagerFactory
     )
     {
         return new JpaTransactionManager(entityManagerFactory);

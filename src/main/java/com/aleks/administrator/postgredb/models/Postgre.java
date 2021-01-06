@@ -11,8 +11,8 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
-@Table(name ="employees")
-public class Employee {
+@Table(name ="postgres")
+public class Postgre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

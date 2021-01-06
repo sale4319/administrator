@@ -1,4 +1,4 @@
-package com.aleks.administrator.postgreDB;
+package com.aleks.administrator.postgredb;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -29,7 +29,7 @@ public class PostgresDBConf {
     //Datasource method
     @Primary
     @Bean(name = "datasource")
-    @ConfigurationProperties(prefix = "spring.employees.datasource")
+    @ConfigurationProperties(prefix = "spring.postgredb.datasource")
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();
     }
@@ -48,8 +48,8 @@ public class PostgresDBConf {
         return builder
                 .dataSource(dataSource)
                 .properties(properties)
-                .packages("com.aleks.administrator.employees")
-                .persistenceUnit("Employees")
+                .packages("com.aleks.administrator.postgredb")
+                .persistenceUnit("Postgres")
                 .build();
     }
 

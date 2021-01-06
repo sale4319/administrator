@@ -1,4 +1,4 @@
-package com.aleks.administrator.cockroachDB.models;
+package com.aleks.administrator.cockroachdb.models;
 
 
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
-@Table(name ="workers")
+@Table(name ="cockroaches")
 public class Cockroach {
 
     @Id

@@ -15,10 +15,10 @@
     <a class="navbar-brand" th:href="@{/index}">
         <img src="../static/img/logo_Netex-1.svg" th:src="@{img/logo_Netex-1.svg}" width="70" height="50" class="d-inline-block align-top">
     </a>
-    <a class="navbar-brand" th:href="@{/employees}">
+    <a class="navbar-brand" th:href="@{/postgres}">
         <img src="../static/img/pgdb.svg" th:src="@{img/pgdb.svg}" width="40" height="40" class="d-inline-block align-top">
     </a>
-    <a class="navbar-brand" th:href="@{/workers}">
+    <a class="navbar-brand" th:href="@{/cockroaches}">
         <img src="../static/img/crdb.svg" th:src="@{img/crdb.svg}" width="40" height="40" class="d-inline-block align-top">
     </a>
 </nav>
@@ -38,25 +38,25 @@
             <td>Delete</td>
         </tr>
 
-        <tr th:each="employee:${showPostgres}">
+        <tr th:each="postgre:${showPostgres}">
              <td><img src="../static/img/pgdb.svg" th:src="@{img/pgdb.svg}" width="30" height="30" class="d-inline-block align-top"></td>
-             <td th:text="${employee.name}">Name</td>
-             <td th:text="${employee.department}">Department</td>
-             <td th:text="${employee.position}">Position</td>
-             <td th:text="${employee.email}">Email</td>
-             <td th:text="${employee.updateOn}">Employment Date</td>
-             <td><button th:href= "@{/oneemployee/(Id=${employee.id})}" onclick="" class="btn btn-info editButton1 fas fa-pencil-alt"></button></td>
-             <td><button th:href= "@{/delete/(Id=${employee.id})}" class="btn btn-danger deleteButton fas fa-trash"></button></td>
+             <td th:text="${postgre.name}">Name</td>
+             <td th:text="${postgre.department}">Department</td>
+             <td th:text="${postgre.position}">Position</td>
+             <td th:text="${postgre.email}">Email</td>
+             <td th:text="${postgre.updateOn}">Employment Date</td>
+             <td><button th:href= "@{/onepostgre/(Id=${postgre.id})}" onclick="" class="btn btn-info editButton1 fas fa-pencil-alt"></button></td>
+             <td><button th:href= "@{/delete/(Id=${postgre.id})}" class="btn btn-danger deleteButton fas fa-trash"></button></td>
          </tr>
-         <tr th:each="worker:${showCockroach}">
+         <tr th:each="cockroach:${showCockroach}">
             <td><img src="../static/img/crdb.svg" th:src="@{img/crdb.svg}" width="30" height="30" class="d-inline-block align-top"></td>
-            <td th:text="${worker.name}">Name</td>
-            <td th:text="${worker.department}">Department</td>
-            <td th:text="${worker.position}">Position</td>
-            <td th:text="${worker.email}">Email</td>
-            <td th:text="${worker.updateOn}">Employment Date</td>
-             <td><button th:href= "@{/oneworker/(Id=${worker.Id})}" class="btn btn-info editButton fas fa-pencil-alt"></button></td>
-             <td><button th:href= "@{/worker/delete/(Id=${worker.Id})}" class="btn btn-danger deleteButton fas fa-trash"></button></td>
+            <td th:text="${cockroach.name}">Name</td>
+            <td th:text="${cockroach.department}">Department</td>
+            <td th:text="${cockroach.position}">Position</td>
+            <td th:text="${cockroach.email}">Email</td>
+            <td th:text="${cockroach.updateOn}">Employment Date</td>
+             <td><button th:href= "@{/onecockroach/(Id=${cockroach.Id})}" class="btn btn-info editButton fas fa-pencil-alt"></button></td>
+             <td><button th:href= "@{/cockroach/delete/(Id=${cockroach.Id})}" class="btn btn-danger deleteButton fas fa-trash"></button></td>
         </tr>
     </table>
 </div>
@@ -101,7 +101,7 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <button type="submit" class="dropdown-item btn btn-primary" th:formaction="@{/addNew}">postgreSQL</button>
-                            <button type="submit" class="dropdown-item btn btn-primary" th:formaction="@{/worker/addNew}">cockroachDB</button>
+                            <button type="submit" class="dropdown-item btn btn-primary" th:formaction="@{/cockroach/addNew}">cockroachDB</button>
                             <button type="submit" class="dropdown-item btn btn-primary">Both</button>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
 </div>
 
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form th:action="@{/worker/save/}" method="put">
+    <form th:action="@{/cockroach/save/}" method="put">
 
         <div class="modal-dialog">
             <div class="modal-content">

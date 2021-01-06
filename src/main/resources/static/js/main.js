@@ -4,14 +4,13 @@ $(document).ready(function() {
        event.preventDefault();
 
        var href = $(this).attr('href');
-       $.get(href, function(worker, status){
-           console.log(worker);
-           $('#editId').val(worker.id);
-           $('#editName').val(worker.name);
-           $('#editPosition').val(worker.position);
-           $('#editDepartment').val(worker.department);
-           $('#editEmail').val(worker.email);
-           $('#editDate').val(worker.updateOn.substr(0,10));
+       $.get(href, function(cockroach, status){
+           $('#editId').val(cockroach.id);
+           $('#editName').val(cockroach.name);
+           $('#editPosition').val(cockroach.position);
+           $('#editDepartment').val(cockroach.department);
+           $('#editEmail').val(cockroach.email);
+           $('#editDate').val(cockroach.updateOn.substr(0,10));
        });
        $('#editModal').modal();
    });
@@ -20,13 +19,13 @@ $(document).ready(function() {
         event.preventDefault();
 
         var href = $(this).attr('href');
-        $.get(href, function(employee, status){
-            $('#editId1').val(employee.id);
-            $('#editName1').val(employee.name);
-            $('#editPosition1').val(employee.position);
-            $('#editDepartment1').val(employee.department);
-            $('#editEmail1').val(employee.email);
-            $('#editDate1').val(employee.updateOn.substr(0,10));
+        $.get(href, function(postgre, status){
+            $('#editId1').val(postgre.id);
+            $('#editName1').val(postgre.name);
+            $('#editPosition1').val(postgre.position);
+            $('#editDepartment1').val(postgre.department);
+            $('#editEmail1').val(postgre.email);
+            $('#editDate1').val(postgre.updateOn.substr(0,10));
         });
         $('#editModal1').modal();
     });

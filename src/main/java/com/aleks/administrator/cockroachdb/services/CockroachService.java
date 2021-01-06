@@ -1,7 +1,7 @@
 package com.aleks.administrator.cockroachdb.services;
 
 import com.aleks.administrator.cockroachdb.models.Cockroach;
-import com.aleks.administrator.cockroachdb.repositories.WorkerRepository;
+import com.aleks.administrator.cockroachdb.repositories.CockroachRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,29 +9,29 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class WorkerService {
+public class CockroachService {
 
     @Autowired
-    public WorkerRepository workerRepository;
+    public CockroachRepository cockroachRepository;
 
-    public List<Cockroach> getWorkers() {
-        return (List<Cockroach>) workerRepository.findAll();
+    public List<Cockroach> getCockroaches() {
+        return (List<Cockroach>) cockroachRepository.findAll();
     }
 
-    public Optional<Cockroach> getWorkerById(Long Id) {
-        return workerRepository.findById(Id);
+    public Optional<Cockroach> getCockroachById(Long Id) {
+        return cockroachRepository.findById(Id);
     }
 
 
-    public void addWorker(Cockroach cockroach) {
-        workerRepository.save(cockroach);
+    public void addCockroach(Cockroach cockroach) {
+        cockroachRepository.save(cockroach);
     }
 
-    public void updateWorker(Cockroach cockroach) {
-        workerRepository.save(cockroach);
+    public void updateCockroach(Cockroach cockroach) {
+        cockroachRepository.save(cockroach);
     }
 
-    public void deleteWorker(Long Id) {
-        workerRepository.deleteById(Id);
+    public void deleteCockroach(Long Id) {
+        cockroachRepository.deleteById(Id);
     }
 }

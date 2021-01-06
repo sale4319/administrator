@@ -1,7 +1,7 @@
 package com.aleks.administrator.postgredb.controllers;
 
 import com.aleks.administrator.postgredb.models.Postgre;
-import com.aleks.administrator.postgredb.services.EmployeeService;
+import com.aleks.administrator.postgredb.services.PostgreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,40 +15,40 @@ import java.util.Optional;
 public class PostgreController {
 
     @Autowired
-    private EmployeeService employeeService;
+    private PostgreService postgreService;
 
-    @GetMapping("/employees")
-    public String getEmployees(Model model){
-        model.addAttribute("employees", employeeService.getEmployees());
-        return "employees";
+    @GetMapping("/postgres")
+    public String getPostgres(Model model){
+        model.addAttribute("postgres", postgreService.getPostgres());
+        return "postgres";
     }
 
 
-    @GetMapping("/oneemployee")
+    @GetMapping("/onepostgre")
     @ResponseBody
-    public Optional<Postgre> getEmployeeById(Long Id, Model model) {
-        return employeeService.getEmployeeById(Id);
+    public Optional<Postgre> getPostgreById(Long Id, Model model) {
+        return postgreService.getPostgreById(Id);
     }
 
 
     @PostMapping(value="/addNew")
-    public String addEmployee(@Valid Postgre postgre, Model model, BindingResult result) {
+    public String addPostgre(@Valid Postgre postgre, Model model, BindingResult result) {
         if(result.hasErrors()) {
             return "redirect:/index";
         }
-        employeeService.addEmployee(postgre);
+        postgreService.addPostgre(postgre);
         return "redirect:/index";
     }
 
     @RequestMapping(value="/save", method = {RequestMethod.PUT, RequestMethod.GET})
-    public String updateEmployee(Postgre postgre) {
-        employeeService.updateEmployee(postgre);
+    public String updatePostgre(Postgre postgre) {
+        postgreService.updatePostgre(postgre);
         return "redirect:/index";
     }
 
     @RequestMapping(value="/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
-    public String deleteEmployee(Long Id) {
-        employeeService.deleteEmployee(Id);
+    public String deletePostgre(Long Id) {
+        postgreService.deletePostgre(Id);
         return "redirect:/index";
     }
 }
