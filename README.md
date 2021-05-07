@@ -9,4 +9,4 @@ Frontend done in jQuery, Bootstrap, Thymeleaf and Backend is Java, Spring Boot, 
 
 #### `Preview`
 
-Will be soon available on youtube
+https://www.youtube.com/watch?v=X2kUqjqeKXE
